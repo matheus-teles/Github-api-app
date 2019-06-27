@@ -14,13 +14,13 @@ export default function(state = INITIAL_STATE, action) {
         isFetching: true,
         didInvalidate: false
       }
-      case RECEIVE_USERS:
-        return {
-          ...state,
-          isFetching: false,
-          didInvalidate: false,
-          items: state.items.concat(action.users)
-        }
+    case RECEIVE_USERS:
+      return {
+        ...state,
+        isFetching: false,
+        didInvalidate: false,
+        items: action.users
+      }
     default:
       return state
   }
