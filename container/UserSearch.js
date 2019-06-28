@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Keyboard, ActivityIndicator, Text, View } from 'react-native';
-import { fetchUsers, searchUsers } from '../redux/actions/users';
+import { ActivityIndicator, Text, View } from 'react-native';
+import { searchUsers } from '../redux/actions/users';
 import UserList from '../components/user/UserList';
 import SearchBar from '../components/shared/SearchBar';
 
@@ -39,5 +39,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { fetchUsers, searchUsers }
+  { searchUsers }
 )(UserSearch)
