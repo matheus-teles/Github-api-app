@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <View style={{ height: 60, padding: 10, backgroundColor: '#6633B9' }}>
+      <View style={{ height: 60, padding: 10, backgroundColor: '#000' }}>
         <View style={styles.contentHolder}>
           <TextInput
             style={styles.textInput}
