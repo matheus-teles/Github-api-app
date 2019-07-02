@@ -17,7 +17,7 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <View style={{ height: 70, padding: 10, backgroundColor: '#6633B9' }}>
+      <View style={{ height: 60, padding: 10, backgroundColor: '#6633B9' }}>
         <View style={styles.contentHolder}>
           <TextInput
             style={styles.textInput}
@@ -26,12 +26,14 @@ export default class SearchBar extends Component {
             value={this.state.query}
             autoCapitalize='none'
             autoCorrect={false}
+            onSubmitEditing={this.handleSearch}
+            returnKeyType={'search'}
           />
           <Icon
             name='search'
             type='fontawesome'
             color='#fff'
-            size={50}
+            size={40}
             containerStyle={styles.button}
             underlayColor={'transparent'}
             onPress={this.handleSearch}
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 50,
     paddingStart: 20,
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: '300'
   },
   button: {

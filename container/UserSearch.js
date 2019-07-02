@@ -14,6 +14,8 @@ class UserSearch extends Component {
     let list;
     if (this.props.isFetching) {
       list = <ActivityIndicator size="large" color="#6633B9" />
+    } else if (this.props.didInvalidate) {
+      list = <Text style={{textAlign: 'center'}}>Erro na busca de usuários</Text>
     } else if (!this.props.users.length) {
       list = <Text style={{textAlign: 'center'}}>Nenhum usuário encontrado</Text>
     } else {
@@ -22,7 +24,7 @@ class UserSearch extends Component {
     return (
         <View style={{ flex: 1, backgroundColor: '#eeeeee' }}>
           <SearchBar onSearch={this.props.searchUsers} />
-          <View style={{ flex: 1, alignItems: "stretch", paddingTop: 10 }}>
+          <View style={{ flex: 1, alignItems: "stretch", paddingTop: 0 }}>
             {list}
           </View>
         </View>
@@ -33,7 +35,8 @@ class UserSearch extends Component {
 const mapStateToProps = (state) => {
   return {
     users: state.users.items,
-    isFetching: state.users.isFetching
+    isFetching: state.users.isFetching,
+    didInvalidate: state.users.didInvalidate
   }
 }
 

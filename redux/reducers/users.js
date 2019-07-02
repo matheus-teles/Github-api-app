@@ -1,4 +1,4 @@
-import { REQUEST_USERS, RECEIVE_USERS } from '../actionTypes'
+import { REQUEST_USERS, RECEIVE_USERS, INVALIDATE_USERS } from '../actionTypes'
 
 const INITIAL_STATE = {
   isFetching: false,
@@ -20,6 +20,12 @@ export default function(state = INITIAL_STATE, action) {
         isFetching: false,
         didInvalidate: false,
         items: action.users
+      }
+    case INVALIDATE_USERS:
+      return {
+        ...state,
+        isFetching: false,
+        didInvalidate: true
       }
     default:
       return state
